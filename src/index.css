@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-tb: 48rem;
+  --breakpoint-mtb: 51.25rem;
+  --breakpoint-ltb: 64rem;
+}
+
+* {
+  font-family: "Bahnschrift";
+}
+
+html {
+  overflow: hidden;
+}
