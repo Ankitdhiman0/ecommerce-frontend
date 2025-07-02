@@ -1,5 +1,5 @@
 import axios from "axios";
-import React from "react";
+import React, { Suspense } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import Navbar from "../Components/Navbar";
@@ -71,12 +71,17 @@ function Home() {
               <div
                 key={prod._id}
                 onClick={() => navigate(`/product/${prod._id}`)}
-                className="w-[47%] sm:w-[47%] md:w-[30%] lg:w-[23%] xl:w-[22%]  h-[20em] bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-4 flex flex-col items-center text-center cursor-pointer"
+                className="w-[47%] sm:w-[47%] md:w-[30%] lg:w-[23%] xl:w-[22%]  h-[25em] bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-4 flex flex-col justify-center items-center text-center cursor-pointer"
               >
-                <img
-                  src={prod.image}
-                  className="w-full h-40 object-cover rounded-xl mb-4"
-                />
+                <Suspense fallback={<div>Loading...</div>}>
+                  <img
+                    src={prod.image}
+                    alt={prod.title}
+                    loading="lazy"
+                    className="w-full h-60 object-cover rounded-xl mb-4"
+                  />
+                </Suspense>
+
                 <h3 className="font-semibold text-lg text-gray-800">
                   {prod.title}
                 </h3>
