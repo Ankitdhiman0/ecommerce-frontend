@@ -12,21 +12,29 @@ function OwnerDashboard() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/users", {
-        headers: { Authorization: `Bearer ${token}` },
-      })
+      .get(
+        "https://ecommerce-backend-production-6406.up.railway.app/api/users",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
       .then((res) => setUsers(res.data))
       .catch((err) => console.log(err));
 
     axios
-      .get("http://localhost:5000/api/orders", {
-        headers: { Authorization: `Bearer ${token}` },
-      })
+      .get(
+        "https://ecommerce-backend-production-6406.up.railway.app/api/orders",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
       .then((res) => setOrders(res.data))
       .catch((err) => console.log(err));
 
     axios
-      .get("http://localhost:5000/api/products")
+      .get(
+        "https://ecommerce-backend-production-6406.up.railway.app/api/products"
+      )
       .then((res) => setProducts(res.data))
       .catch((err) => console.log(err));
   }, [token]);
@@ -39,9 +47,12 @@ function OwnerDashboard() {
 
   const handleDeleteOrder = (orderId) => {
     axios
-      .delete(`http://localhost:5000/api/orders/${orderId}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
+      .delete(
+        `https://ecommerce-backend-production-6406.up.railway.app/api/orders/${orderId}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
       .then(() => {
         setOrders((prev) => prev.filter((o) => o._id !== orderId));
       })
@@ -59,9 +70,13 @@ function OwnerDashboard() {
 
   const handleUpdateUser = () => {
     axios
-      .put(`http://localhost:5000/api/users/${editingUser._id}`, editData, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
+      .put(
+        `https://ecommerce-backend-production-6406.up.railway.app/api/users/${editingUser._id}`,
+        editData,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
       .then((res) => {
         setUsers((prev) =>
           prev.map((u) => (u._id === editingUser._id ? res.data : u))

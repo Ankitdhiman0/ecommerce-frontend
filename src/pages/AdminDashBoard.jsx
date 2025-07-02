@@ -11,16 +11,22 @@ function AdminDashBoard() {
     const token = localStorage.getItem("token");
 
     axios
-      .get("http://localhost:5000/api/users", {
-        headers: { Authorization: `Bearer ${token}` },
-      })
+      .get(
+        "https://ecommerce-backend-production-6406.up.railway.app/api/users",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
       .then((res) => setUsers(res.data))
       .catch((err) => console.log(err));
 
     axios
-      .get("http://localhost:5000/api/orders", {
-        headers: { Authorization: `Bearer ${token}` },
-      })
+      .get(
+        "https://ecommerce-backend-production-6406.up.railway.app/api/orders",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
       .then((res) => setOrders(res.data))
       .catch((err) => console.log(err));
   }, []);

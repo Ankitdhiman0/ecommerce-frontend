@@ -12,7 +12,7 @@ function Cart() {
     const token = localStorage.getItem("token"); //for authentication
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/orders",
+        "https://ecommerce-backend-production-6406.up.railway.app/api/orders",
         {
           products: cart.map((item) => ({
             productId: item._id,
