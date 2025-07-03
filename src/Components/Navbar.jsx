@@ -58,7 +58,7 @@ function Navbar({ search, setSearch }) {
           className="text-xl md:text-2xl font-bold text-gray-800 cursor-pointer relative"
           onClick={() => setShowLogout(!showLogout)}
         >
-          Welcome! <span className="text-blue-600">{username}</span>
+          Hey! <span className="text-blue-600">{username}</span>
           {showLogout && (
             <div className="absolute md:-top-[18%]  w-auto border border-gray-400 rounded-2xl md:left-[9em]   flex  items-center gap-3 py-2 transition-all ease-in-out  px-2 duration-500">
               <button
