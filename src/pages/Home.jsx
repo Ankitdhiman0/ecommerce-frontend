@@ -68,7 +68,7 @@ function Home() {
               <div
                 key={prod._id}
                 onClick={() => navigate(`/product/${prod._id}`)}
-                className="w-[44%] sm:w-[47%] md:w-[30%] lg:w-[23%] xl:w-[22%]  h-[24em] bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-4 flex flex-col justify-center items-center text-center cursor-pointer"
+                className="w-[46%] sm:w-[47%] md:w-[30%] lg:w-[23%] xl:w-[22%] h-[23.5em] md:h-[25em] bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-4 flex flex-col justify-center items-center text-center cursor-pointer"
               >
                 <Suspense fallback={<div>Loading...</div>}>
                   <img
