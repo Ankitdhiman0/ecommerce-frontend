@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="bg-[#1e1f23] text-white w-full px-6 py-12 font-[Bahnschrift] rounded-t-3xl">
+    <footer className="bg-[#1e1f23] text-white w-full px-6 py-12 font-[Bahnschrift] rounded-t-3xl overflow-x-hidden">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 justify-between items-center">
         {/* Left Section */}
         <div className="w-full lg:w-1/2 flex flex-col">

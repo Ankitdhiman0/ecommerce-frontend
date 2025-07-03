@@ -9,11 +9,10 @@ gsap.registerPlugin(useGSAP);
 function Navbar({ search, setSearch }) {
   const [username, setUsername] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+
   const [showLogout, setShowLogout] = useState(false);
 
   const searchInputRef = useRef();
-  const mobileMenuRef = useRef();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -36,8 +35,7 @@ function Navbar({ search, setSearch }) {
     if (searchOpen) {
       el.classList.remove("hidden");
       tl.to(el, {
-        width: "180px",
-        height: "30px",
+        width: "160px",
         opacity: 1,
         display: "block",
       });
@@ -45,19 +43,6 @@ function Navbar({ search, setSearch }) {
       tl.to(el, { width: 0, opacity: 0 }).set(el, { display: "none" });
     }
   }, [searchOpen]);
-
-  // Animate mobile menu
-  useGSAP(() => {
-    if (!mobileMenuRef.current) return;
-
-    gsap.to(mobileMenuRef.current, {
-      y: menuOpen ? 0 : "-100%",
-      opacity: menuOpen ? 1 : 0,
-      duration: 0.4,
-      ease: "power2.out",
-      pointerEvents: menuOpen ? "auto" : "none",
-    });
-  }, [menuOpen]);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -68,7 +53,7 @@ function Navbar({ search, setSearch }) {
   return (
     <>
       {/* Navbar */}
-      <nav className="font-[Corbel] w-full px-4 md:px-10 py-4 flex flex-wrap items-center justify-between gap-4 bg-white rounded-2xl z-10 relative md:sticky top-0 md:z-50">
+      <nav className="font-[Corbel] w-full px-4 md:px-10 py-4 flex flex-wrap items-center justify-between gap-4 bg-white rounded-2xl z-10 relative md:sticky top-0 md:z-50 overflow-hidden">
         <div
           className="text-xl md:text-2xl font-bold text-gray-800 cursor-pointer relative"
           onClick={() => setShowLogout(!showLogout)}
@@ -119,43 +104,8 @@ function Navbar({ search, setSearch }) {
           >
             <i className="ri-shopping-bag-line"></i>
           </button>
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="text-2xl text-gray-600 md:hidden hover:text-black"
-          >
-            <i className="ri-menu-2-line"></i>
-          </button>
         </div>
       </nav>
-
-      {/* Mobile Menu Overlay */}
-      <div
-        ref={mobileMenuRef}
-        className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-60 backdrop-blur-sm flex flex-col justify-center items-center space-y-6 z-40 text-white text-xl font-semibold md:hidden"
-        style={{ pointerEvents: "none", opacity: 0 }}
-      >
-        <button
-          className="hover:text-blue-400 transition"
-          onClick={() => {
-            navigate("/home");
-            setMenuOpen(false);
-          }}
-        >
-          Products
-        </button>
-        <button
-          className="hover:text-blue-400 transition"
-          onClick={() => setMenuOpen(false)}
-        >
-          About Us
-        </button>
-        <button
-          onClick={() => setMenuOpen(false)}
-          className="mt-10 px-4 py-2 text-sm bg-white text-black rounded-md hover:bg-gray-200"
-        >
-          Close
-        </button>
-      </div>
     </>
   );
 }
