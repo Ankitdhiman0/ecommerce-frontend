@@ -36,7 +36,7 @@ function Navbar({ search, setSearch }) {
     if (searchOpen) {
       el.classList.remove("hidden");
       tl.to(el, {
-        width: "200px",
+        width: "180px",
         height: "30px",
         opacity: 1,
         display: "block",
@@ -68,7 +68,7 @@ function Navbar({ search, setSearch }) {
   return (
     <>
       {/* Navbar */}
-      <nav className="font-[Corbel] w-full px-4 md:px-10 py-4 flex flex-wrap items-center justify-between gap-4 bg-white rounded-2xl z-10 relative md:sticky top-0 md:z-50 xl:h-18">
+      <nav className="font-[Corbel] w-full px-4 md:px-10 py-4 flex flex-wrap items-center justify-between gap-4 bg-white rounded-2xl z-10 relative md:sticky top-0 md:z-50">
         <div
           className="text-xl md:text-2xl font-bold text-gray-800 cursor-pointer relative"
           onClick={() => setShowLogout(!showLogout)}
