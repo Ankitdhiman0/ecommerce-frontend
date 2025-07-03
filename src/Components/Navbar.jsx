@@ -42,7 +42,7 @@ function Navbar({ search, setSearch }) {
 
       mm.add("(max-width: 768px)", () => {
         // Animations for mobile
-        gsap.to(el, { width: "150px", opacity: 1, display: "block" });
+        gsap.to(el, { width: "140px", opacity: 1, display: "block" });
       });
     } else {
       tl.to(el, { width: 0, opacity: 0 }).set(el, { display: "none" });
