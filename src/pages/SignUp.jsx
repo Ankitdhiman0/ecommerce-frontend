@@ -89,7 +89,7 @@ function SignUp() {
                 </h1>
                 <form
                   onSubmit={handleSubmit}
-                  className=" w-[80%] max-w-xs flex flex-col gap-5 items-center justify-center"
+                  className=" w-[80%] md:max-w-xs flex flex-col gap-5 items-center justify-center"
                 >
                   <input
                     autoComplete="username"

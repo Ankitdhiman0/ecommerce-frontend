@@ -90,7 +90,7 @@ function Login() {
             </div>
 
             {/* Form Section */}
-            <div className="ok w-full md:w-1/2 h-full md:border md:border-gray-200 ml-1 text-white flex flex-col items-center justify-center px-4 py-6 rounded-2xl">
+            <div className="ok w-full md:w-1/2 h-full md:border md:border-gray-200 ml-1 text-white flex flex-col items-center justify-center px-2 py-6 rounded-2xl">
               <div className="w-full flex flex-col items-center h-full justify-center">
                 <h1 className="txt text-xl md:text-xl xl:text-[1.5vw] font-bold mb-4 text-center">
                   Login
@@ -98,7 +98,7 @@ function Login() {
 
                 <form
                   onSubmit={handleSubmit}
-                  className="w-[80%] max-w-xs flex flex-col gap-5 items-center justify-center"
+                  className="w-[90%] md:max-w-xs flex flex-col gap-5 items-center justify-center"
                 >
                   <input
                     autoComplete="username"
@@ -108,7 +108,7 @@ function Login() {
                     autoFocus
                     required
                     onChange={(e) => setUsername(e.target.value)}
-                    className="txt px-3 py-3 rounded-lg text-sm xl:text-[1vw] border border-white outline-none w-full"
+                    className="txt px-3 py-3 rounded-lg text-sm  xl:text-[1vw] border border-white outline-none w-full"
                   />
 
                   <div className="txt flex w-full items-center justify-between border border-white rounded-lg px-2 py-3">
