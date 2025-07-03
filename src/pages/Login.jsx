@@ -77,7 +77,7 @@ function Login() {
 
   return (
     <>
-      <main className="h-screen w-full text-black flex justify-center items-center bg-[url('/mobile.jpg')] md:bg-[url('/4.jpg')] bg-contain bg-center">
+      <main className="h-screen w-full text-black flex justify-center items-center bg-[url('/mobile.jpg')] md:bg-[url('/4.jpg')] bg-contain bg-center overflow-hidden">
         <section className="w-full h-full flex items-center justify-center flex-col md:flex-row">
           <div className="ok blured bg-transparent w-[90%] border border-white md:border-0 md:h-[90%] flex p-10 backdrop-blur-sm rounded-2xl">
             {/* Image Section - Hidden on mobile */}
