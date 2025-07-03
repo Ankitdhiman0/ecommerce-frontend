@@ -45,7 +45,7 @@ function Home() {
               <button
                 key={i}
                 onClick={() => setCategory(categ)}
-                className={`px-2 cursor-pointer py-2 rounded-xl ${
+                className={`px-1 cursor-pointer py-[4px] rounded-xl ${
                   category === categ ? "bg-blue-600 text-white" : "bg-gray-300"
                 }  hover:bg-blue-600 transition ease-in duration-200 hover:text-white`}
               >
@@ -53,10 +53,10 @@ function Home() {
               </button>
             ))}
             <button
-              className="px-2 py-2 rounded-xl bg-red-200 cursor-pointer text-[13px] hover:text-white hover:bg-red-400 transition duration-200 ease-in"
+              className="px-1 py-[4px] rounded-xl bg-red-200 cursor-pointer text-[13px] hover:text-white hover:bg-red-400 transition duration-200 ease-in"
               onClick={() => setCategory("")}
             >
-              Remove Filter
+              All
             </button>
           </div>
         </section>
