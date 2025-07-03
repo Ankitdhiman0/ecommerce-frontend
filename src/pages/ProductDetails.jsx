@@ -27,7 +27,11 @@ function ProductDetails() {
   }, [id]);
 
   if (!product) {
-    return <div className="text-center mt-10 text-gray-500">Loading...</div>;
+    return (
+      <div className="h-screen w-full flex justify-center items-center">
+        <div className="text-gray-500">Loading...</div>
+      </div>
+    );
   }
 
   return (

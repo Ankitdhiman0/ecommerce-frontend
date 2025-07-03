@@ -28,7 +28,10 @@ function OwnerDashboard() {
           headers: { Authorization: `Bearer ${token}` },
         }
       )
-      .then((res) => setOrders(res.data))
+      .then((res) => {
+        setOrders(res.data);
+      })
+      .then()
       .catch((err) => console.log(err));
 
     axios
@@ -84,6 +87,9 @@ function OwnerDashboard() {
         setEditingUser(null);
       })
       .catch((err) => console.log(err));
+  };
+  const calcTotal = (order) => {
+    return order.products.reduce((sum, p) => sum + (p.price || 0), 0);
   };
 
   return (
@@ -159,21 +165,24 @@ function OwnerDashboard() {
                 >
                   <div>
                     <p className="font-medium text-gray-800">
-                      User ID: {o.userId}
+                      User ID: {o.user._id}
+                    </p>
+                    <p className="font-medium text-gray-800">
+                      Username: {o.user.username}
                     </p>
                     <p className="text-gray-500 text-sm">
-                      Total: ₹{o.totalAmount}
+                      Amount: ₹{calcTotal(o)}
                     </p>
                   </div>
                   <div className="flex items-center gap-2 mt-2 sm:mt-0">
                     <span
                       className={`inline-block ${
-                        o.isDelivered
+                        o.status === "delivered"
                           ? "bg-green-100 text-green-600"
                           : "bg-yellow-100 text-yellow-600"
                       } px-3 py-1 rounded-full text-xs`}
                     >
-                      {o.isDelivered ? "Delivered" : "Pending"}
+                      {o.status}
                     </span>
                     <button
                       onClick={() => handleDeleteOrder(o._id)}

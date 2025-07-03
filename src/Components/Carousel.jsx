@@ -30,7 +30,7 @@ export default function Carousel() {
   }, []);
 
   return (
-    <div className="w-[96vw] lg:h-[50vh] tb:h-[50vh] mtb:h-[50vh] xl:h-[90vh]  h-1/2 mx-auto overflow-hidden relative rounded-4xl shadow-xl">
+    <div className="w-[96vw] lg:h-[50vh] tb:h-[50vh] mtb:h-[50vh] xl:h-[89vh]  h-1/2 mx-auto overflow-hidden relative rounded-4xl shadow-xl">
       <div
         className="relative flex transition-transform duration-700 ease-in-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}

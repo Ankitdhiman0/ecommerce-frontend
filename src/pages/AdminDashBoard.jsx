@@ -27,9 +27,15 @@ function AdminDashBoard() {
           headers: { Authorization: `Bearer ${token}` },
         }
       )
-      .then((res) => setOrders(res.data))
+      .then((res) => {
+        setOrders(res.data);
+      })
       .catch((err) => console.log(err));
   }, []);
+
+  const totalAmount = (orders) => {
+    return orders.products.reduce((sum, p) => sum + (p.price || 0), 0);
+  };
 
   // Analytics
   const totalUsers = users.length;
@@ -104,20 +110,23 @@ function AdminDashBoard() {
                 >
                   <div>
                     <p className="font-medium text-gray-800">
-                      User ID: {o.userId}
+                      User ID: {o.user._id}
+                    </p>
+                    <p className="font-medium text-gray-800">
+                      Username: {o.user.username}
                     </p>
                     <p className="text-gray-500 text-sm">
-                      Total: ₹{o.totalAmount}
+                      Total: ₹{totalAmount(o)}
                     </p>
                   </div>
                   <span
                     className={`inline-block mt-2 sm:mt-0 ${
-                      o.isDelivered
+                      o.status === "delivered"
                         ? "bg-green-100 text-green-600"
                         : "bg-yellow-100 text-yellow-600"
                     } px-3 py-1 rounded-full text-xs`}
                   >
-                    {o.isDelivered ? "Delivered" : "Pending"}
+                    {o.status}
                   </span>
                 </div>
               ))

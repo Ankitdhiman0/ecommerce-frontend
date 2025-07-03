@@ -7,23 +7,24 @@ import axios from "axios";
 function Cart() {
   const { cart, clearCart, removeFromCart, totalPrice } = useCart();
   const navigate = useNavigate();
-
   const handleOrder = async () => {
-    const token = localStorage.getItem("token"); //for authentication
+    const token = localStorage.getItem("token");
+    if (!token) {
+      alert("Please login to place an order");
+      return;
+    }
+
     try {
       const res = await axios.post(
         "https://ecommerce-backend-production-6406.up.railway.app/api/orders",
         {
-          products: cart.map((item) => ({
-            productId: item._id,
-            title: item.title,
-            price: item.price,
-            qty: item.qty,
-            image: item.image,
-          })),
-          totalAmount: totalPrice,
+          products: cart.map((item) => item._id), // 👈 ONLY product IDs
         },
-        { headers: { Authorization: `Bearer ${token}` } }
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
 
       console.log("Order Placed", res.data);

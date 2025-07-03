@@ -10,6 +10,7 @@ function Navbar({ search, setSearch }) {
   const [username, setUsername] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showLogout, setShowLogout] = useState(false);
 
   const searchInputRef = useRef();
   const mobileMenuRef = useRef();
@@ -34,7 +35,12 @@ function Navbar({ search, setSearch }) {
 
     if (searchOpen) {
       el.classList.remove("hidden");
-      tl.to(el, { width: "160px", opacity: 1, display: "block" });
+      tl.to(el, {
+        width: "200px",
+        height: "30px",
+        opacity: 1,
+        display: "block",
+      });
     } else {
       tl.to(el, { width: 0, opacity: 0 }).set(el, { display: "none" });
     }
@@ -53,23 +59,38 @@ function Navbar({ search, setSearch }) {
     });
   }, [menuOpen]);
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    navigate("/");
+  };
+
   return (
     <>
       {/* Navbar */}
-      <nav className="font-[Corbel] w-full px-4 md:px-10 py-4 flex flex-wrap items-center justify-between gap-4 bg-white rounded-2xl z-10 relative  md:sticky top-0 md:z-50">
-        <div className="text-xl md:text-2xl font-bold text-gray-800">
+      <nav className="font-[Corbel] w-full px-4 md:px-10 py-4 flex flex-wrap items-center justify-between gap-4 bg-white rounded-2xl z-10 relative md:sticky top-0 md:z-50 xl:h-18">
+        <div
+          className="text-xl md:text-2xl font-bold text-gray-800 cursor-pointer relative"
+          onClick={() => setShowLogout(!showLogout)}
+        >
           Welcome! <span className="text-blue-600">{username}</span>
+          {showLogout && (
+            <div className="absolute md:-top-[18%]  w-auto border border-gray-400 rounded-2xl md:left-[9em]   flex  items-center gap-3 py-2 transition-all ease-in-out  px-2 duration-500">
+              <button
+                className=" text-xl  w-[90%] rounded-xl"
+                onClick={() => handleLogout()}
+              >
+                Logout
+              </button>
+              <button
+                className="text-xl  w-[90%] rounded-xl"
+                onClick={() => navigate("/home")}
+              >
+                Products
+              </button>
+            </div>
+          )}
         </div>
-
-        <ul className="hidden md:flex gap-6 text-lg text-gray-600">
-          <li
-            className="hover:text-blue-600 cursor-pointer"
-            onClick={() => navigate("/home")}
-          >
-            Products
-          </li>
-          <li className="hover:text-blue-600 cursor-pointer">About Us</li>
-        </ul>
 
         <div className="flex items-center gap-3 flex-shrink-0">
           <input
@@ -91,6 +112,12 @@ function Navbar({ search, setSearch }) {
             onClick={() => navigate("/cart")}
           >
             <i className="ri-shopping-cart-fill"></i>
+          </button>
+          <button
+            className="text-2xl text-gray-600 cursor-pointer hover:text-black"
+            onClick={() => navigate("/bag")}
+          >
+            <i className="ri-shopping-bag-line"></i>
           </button>
           <button
             onClick={() => setMenuOpen(!menuOpen)}

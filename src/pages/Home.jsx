@@ -6,15 +6,12 @@ import Navbar from "../Components/Navbar";
 import Carousel from "../Components/Carousel";
 import { useNavigate } from "react-router-dom";
 import Footer from "../Components/Footer";
-import useLenis from "../utils/useLenis";
 
 function Home() {
   const [category, setCategory] = useState(""); // Show all initially
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
-
-  useLenis();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -78,7 +75,7 @@ function Home() {
                     src={prod.image}
                     alt={prod.title}
                     loading="lazy"
-                    className="w-full h-60 object-cover rounded-xl mb-4"
+                    className="w-full h-60 object-contain bg-blend-lighten rounded-xl mb-4"
                   />
                 </Suspense>
 

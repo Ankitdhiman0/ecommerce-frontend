@@ -5,12 +5,13 @@ import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
 import PrivateRoute from "./Components/PrivateRoute";
-import ProductDetails from "./pages/productDetails";
+import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import AdminDashBoard from "./pages/AdminDashBoard";
 import OwnerDashBoard from "./pages/OwnerDashBoard";
 import OrderSuccess from "./pages/OrderSuccess";
+import Bag from "./pages/Bag";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/bag" element={<Bag />} />
         <Route
           path="/admin"
           element={
