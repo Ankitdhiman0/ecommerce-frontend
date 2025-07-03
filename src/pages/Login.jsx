@@ -37,7 +37,7 @@ function Login() {
       if (role === "owner") navigate("/owner");
     } catch (err) {
       console.error(err);
-      setErrMsg("Server Error");
+      setErrMsg("No User Found");
     }
   };
 
@@ -45,7 +45,7 @@ function Login() {
     const tl = gsap.timeline();
 
     tl.from(".ok", {
-      x: 30, // 👈 comes from the right now
+      x: 30, //  comes from the right
       opacity: 0,
       duration: 1.5,
       ease: "power4.out",
