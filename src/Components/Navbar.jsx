@@ -65,7 +65,6 @@ function Navbar({ search, setSearch }) {
             setShowLogout(!showLogout);
           }}
         >
-          Hey!{" "}
           <span className="text-blue-600" onClick={() => searchOpen(false)}>
             {username}
           </span>
