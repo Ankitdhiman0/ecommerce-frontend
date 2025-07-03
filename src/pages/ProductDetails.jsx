@@ -37,7 +37,7 @@ function ProductDetails() {
   return (
     <main className="h-screen bg-[#f9f9fb] font-[Bahnschrift] p-4 md:p-10">
       <Navbar />
-      <div className="max-w-6xl mx-auto bg-white rounded-3xl shadow-lg flex flex-col md:flex-row overflow-hidden translate-y-[11em] ">
+      <div className="max-w-6xl mx-auto bg-white rounded-3xl shadow-lg flex flex-col md:flex-row overflow-hidden translate-y-[5em] ">
         {/* Left Section - Product Image */}
         <div className="md:w-1/2 w-full bg-[#f2f4f7] flex items-center justify-center p-6">
           <img
