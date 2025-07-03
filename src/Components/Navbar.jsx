@@ -34,10 +34,15 @@ function Navbar({ search, setSearch }) {
 
     if (searchOpen) {
       el.classList.remove("hidden");
-      tl.to(el, {
-        width: "160px",
-        opacity: 1,
-        display: "block",
+      const mm = gsap.matchMedia();
+      mm.add("(min-width: 768px)", () => {
+        // Animations for tablets & above
+        gsap.to(el, { width: "200px", opacity: 1, display: "block" });
+      });
+
+      mm.add("(max-width: 768px)", () => {
+        // Animations for mobile
+        gsap.to(el, { width: "150px", opacity: 1, display: "block" });
       });
     } else {
       tl.to(el, { width: 0, opacity: 0 }).set(el, { display: "none" });
@@ -56,11 +61,16 @@ function Navbar({ search, setSearch }) {
       <nav className="font-[Corbel] w-full px-4 md:px-10 py-4 flex flex-wrap items-center justify-between gap-4 bg-white rounded-2xl z-10 relative md:sticky top-0 md:z-50 overflow-hidden">
         <div
           className="text-xl md:text-2xl font-bold text-gray-800 cursor-pointer relative"
-          onClick={() => setShowLogout(!showLogout)}
+          onClick={() => {
+            setShowLogout(!showLogout);
+          }}
         >
-          Hey! <span className="text-blue-600">{username}</span>
+          Hey!{" "}
+          <span className="text-blue-600" onClick={() => searchOpen(false)}>
+            {username}
+          </span>
           {showLogout && (
-            <div className="absolute md:-top-[18%]  w-auto border border-gray-400 rounded-2xl md:left-[9em]   flex  items-center gap-3 py-2 transition-all ease-in-out  px-2 duration-500">
+            <div className="absolute left-36 -top-[.3em] md:-top-[18%]  w-auto border border-gray-400 rounded-[8px] md:left-[9em] font-light   flex  items-center gap-3 py-1 transition-all ease-in-out  px-2 duration-500">
               <button
                 className=" text-xl  w-[90%] rounded-xl"
                 onClick={() => handleLogout()}
@@ -87,19 +97,22 @@ function Navbar({ search, setSearch }) {
             className="bg-gray-100 px-3 py-1 rounded-full text-sm md:text-base outline-none w-0 opacity-0 hidden transition-all"
           />
           <button
-            onClick={() => setSearchOpen((prev) => !prev)}
-            className="text-2xl text-gray-600 cursor-pointer hover:text-black"
+            onClick={() => {
+              setSearchOpen((prev) => !prev);
+              setShowLogout(false);
+            }}
+            className="text-lg md:text-2xl text-gray-600 cursor-pointer hover:text-black"
           >
             <i className="ri-search-line"></i>
           </button>
           <button
-            className="text-2xl text-gray-600 cursor-pointer hover:text-black"
+            className="text-lg md:text-2xl text-gray-600 cursor-pointer hover:text-black"
             onClick={() => navigate("/cart")}
           >
             <i className="ri-shopping-cart-fill"></i>
           </button>
           <button
-            className="text-2xl text-gray-600 cursor-pointer hover:text-black"
+            className="text-lg md:text-2xl text-gray-600 cursor-pointer hover:text-black"
             onClick={() => navigate("/bag")}
           >
             <i className="ri-shopping-bag-line"></i>
