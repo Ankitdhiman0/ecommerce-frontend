@@ -26,11 +26,12 @@ function Footer() {
 
           {/* Social Icons */}
           <div className="flex gap-4 mt-6 text-2xl text-gray-400">
-            <i className="ri-facebook-fill hover:text-white cursor-pointer transition"></i>
-            <i className="ri-instagram-line hover:text-white cursor-pointer transition"></i>
-            <i className="ri-twitter-line hover:text-white cursor-pointer transition"></i>
-            <i className="ri-linkedin-fill hover:text-white cursor-pointer transition"></i>
-            <i className="ri-youtube-fill hover:text-white cursor-pointer transition"></i>
+            <a href="https://www.instagram.com/___ankit._______?igsh=cmx0Y282OG0yZG11">
+              <i className="ri-instagram-line hover:text-white cursor-pointer transition"></i>
+            </a>
+            <a href="www.linkedin.com/in/ankit-dhiman-976a372a4">
+              <i className="ri-linkedin-fill hover:text-white cursor-pointer transition"></i>
+            </a>
           </div>
         </div>
 
@@ -38,7 +39,7 @@ function Footer() {
         <div className="w-full lg:w-1/2 flex justify-center items-center">
           <div className="bg-[#2a2c33] p-4 sm:p-6 rounded-2xl w-[80%] sm:max-w-sm flex flex-col items-center text-center">
             <img
-              src="/avatar.jpg"
+              src="/my.png"
               alt="Product"
               className="rounded-xl w-full object-cover mb-5"
             />
