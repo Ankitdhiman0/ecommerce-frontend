@@ -65,11 +65,11 @@ function Navbar({ search, setSearch }) {
             setShowLogout(!showLogout);
           }}
         >
-          <span className="text-blue-600" onClick={() => searchOpen(false)}>
-            {username}
+          <span className="text-blue-600">
+            {username.length > 10 ? `${username.slice(0, 10)}...` : username}
           </span>
           {showLogout && (
-            <div className=" text-sm md:text-xl absolute left-28 -top-[.1em] md:-top-[18%]  w-auto border border-gray-400 rounded-[8px] md:left-[9em] font-light   flex  items-center gap-2 py-1 transition-all ease-in-out  px-2 duration-500">
+            <div className=" text-sm md:text-xl absolute top-0 left-[145%] md:-top-1 w-auto border border-gray-400 rounded-[8px] font-light   flex  items-center gap-2 py-1 transition-all ease-in-out  px-2 duration-500">
               <button
                 className="   w-[90%] rounded-xl"
                 onClick={() => handleLogout()}
