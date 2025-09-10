@@ -15,8 +15,7 @@ function Home() {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      let url =
-        "https://ecommerce-backend-production-6406.up.railway.app/api/products";
+      let url = "https://e-commerce-backend-production-0ed1.up.railway.app/api/products";
       if (category) url += `?category=${category}`;
 
       const res = await axios.get(url);

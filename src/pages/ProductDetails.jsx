@@ -14,7 +14,7 @@ function ProductDetails() {
     const fetchProduct = async () => {
       try {
         const res = await axios.get(
-          `https://ecommerce-backend-production-6406.up.railway.app/api/products/${id}`
+          `https://e-commerce-backend-production-0ed1.up.railway.app/api/products/${id}`
         );
         setProduct(res.data);
         console.log(res.data);

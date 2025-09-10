@@ -19,7 +19,7 @@ function SignUp() {
     setErrMsg("");
     try {
       await axios.post(
-        "https://ecommerce-backend-production-6406.up.railway.app/api/auth/signup",
+        "https://e-commerce-backend-production-0ed1.up.railway.app/api/auth/signup",
         {
           ...form,
           role: "consumer",

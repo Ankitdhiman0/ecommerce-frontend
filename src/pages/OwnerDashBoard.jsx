@@ -13,7 +13,7 @@ function OwnerDashboard() {
   useEffect(() => {
     axios
       .get(
-        "https://ecommerce-backend-production-6406.up.railway.app/api/users",
+        "https://e-commerce-backend-production-0ed1.up.railway.app/api/users",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -23,7 +23,7 @@ function OwnerDashboard() {
 
     axios
       .get(
-        "https://ecommerce-backend-production-6406.up.railway.app/api/orders",
+        "https://e-commerce-backend-production-0ed1.up.railway.app/api/orders",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -36,7 +36,7 @@ function OwnerDashboard() {
 
     axios
       .get(
-        "https://ecommerce-backend-production-6406.up.railway.app/api/products"
+        "https://e-commerce-backend-production-0ed1.up.railway.app/api/products"
       )
       .then((res) => setProducts(res.data))
       .catch((err) => console.log(err));
@@ -51,7 +51,7 @@ function OwnerDashboard() {
   const handleDeleteOrder = (orderId) => {
     axios
       .delete(
-        `https://ecommerce-backend-production-6406.up.railway.app/api/orders/${orderId}`,
+        `https://e-commerce-backend-production-0ed1.up.railway.app/api/orders/${orderId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -74,7 +74,7 @@ function OwnerDashboard() {
   const handleUpdateUser = () => {
     axios
       .put(
-        `https://ecommerce-backend-production-6406.up.railway.app/api/users/${editingUser._id}`,
+        `https://e-commerce-backend-production-0ed1.up.railway.app/api/users/${editingUser._id}`,
         editData,
         {
           headers: { Authorization: `Bearer ${token}` },

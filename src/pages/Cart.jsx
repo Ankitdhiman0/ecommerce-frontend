@@ -16,7 +16,7 @@ function Cart() {
 
     try {
       const res = await axios.post(
-        "https://ecommerce-backend-production-6406.up.railway.app/api/orders",
+        "https://e-commerce-backend-production-0ed1.up.railway.app/api/orders",
         {
           products: cart.map((item) => item._id), // 👈 ONLY product IDs
         },

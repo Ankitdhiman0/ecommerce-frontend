@@ -12,7 +12,7 @@ function AdminDashBoard() {
 
     axios
       .get(
-        "https://ecommerce-backend-production-6406.up.railway.app/api/users",
+        "https://e-commerce-backend-production-0ed1.up.railway.app/api/users",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -21,12 +21,9 @@ function AdminDashBoard() {
       .catch((err) => console.log(err));
 
     axios
-      .get(
-        "https://ecommerce-backend-production-6406.up.railway.app/api/orders",
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      )
+      .get(" http://localhost:5000/api/orders", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((res) => {
         setOrders(res.data);
       })

@@ -16,7 +16,7 @@ const Bag = () => {
 
     try {
       const res = await axios.get(
-        "https://ecommerce-backend-production-6406.up.railway.app/api/orders/my-orders",
+        "https://e-commerce-backend-production-0ed1.up.railway.app/api/orders/my-orders",
         {
           headers: {
             Authorization: `Bearer ${storedToken}`,
@@ -39,7 +39,7 @@ const Bag = () => {
     const token = localStorage.getItem("token");
     try {
       await axios.put(
-        `https://ecommerce-backend-production-6406.up.railway.app/api/orders/${orderId}/status`,
+        `https://e-commerce-backend-production-0ed1.up.railway.app/api/orders/${orderId}/status`,
         { status: "delivered" },
         {
           headers: {
