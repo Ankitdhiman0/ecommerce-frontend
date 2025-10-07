@@ -34,7 +34,7 @@ function Login() {
       if (role === "owner") navigate("/owner");
     } catch (err) {
       console.error(err);
-      setErrMsg("No User Found");
+      setErrMsg("Something went wrong");
     }
   };
 
