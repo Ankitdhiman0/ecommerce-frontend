@@ -13,9 +13,7 @@ function ProductDetails() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await axios.get(
-          `https://e-commerce-backend-production-0ed1.up.railway.app/api/products/${id}`
-        );
+        const res = await axios.get(`http://localhost:5000/api/products/${id}`);
         setProduct(res.data);
         console.log(res.data);
       } catch (err) {

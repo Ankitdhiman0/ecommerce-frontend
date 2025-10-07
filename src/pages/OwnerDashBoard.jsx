@@ -12,22 +12,16 @@ function OwnerDashboard() {
 
   useEffect(() => {
     axios
-      .get(
-        "https://e-commerce-backend-production-0ed1.up.railway.app/api/users",
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      )
+      .get("http://localhost:5000/api/users", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((res) => setUsers(res.data))
       .catch((err) => console.log(err));
 
     axios
-      .get(
-        "https://e-commerce-backend-production-0ed1.up.railway.app/api/orders",
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      )
+      .get("http://localhost:5000/api/orders", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((res) => {
         setOrders(res.data);
       })
@@ -35,9 +29,7 @@ function OwnerDashboard() {
       .catch((err) => console.log(err));
 
     axios
-      .get(
-        "https://e-commerce-backend-production-0ed1.up.railway.app/api/products"
-      )
+      .get("http://localhost:5000/api/products")
       .then((res) => setProducts(res.data))
       .catch((err) => console.log(err));
   }, [token]);
@@ -50,12 +42,9 @@ function OwnerDashboard() {
 
   const handleDeleteOrder = (orderId) => {
     axios
-      .delete(
-        `https://e-commerce-backend-production-0ed1.up.railway.app/api/orders/${orderId}`,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      )
+      .delete(`http://localhost:5000/api/orders/${orderId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then(() => {
         setOrders((prev) => prev.filter((o) => o._id !== orderId));
       })
@@ -73,13 +62,9 @@ function OwnerDashboard() {
 
   const handleUpdateUser = () => {
     axios
-      .put(
-        `https://e-commerce-backend-production-0ed1.up.railway.app/api/users/${editingUser._id}`,
-        editData,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      )
+      .put(`http://localhost:5000/api/users/${editingUser._id}`, editData, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((res) => {
         setUsers((prev) =>
           prev.map((u) => (u._id === editingUser._id ? res.data : u))

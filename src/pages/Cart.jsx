@@ -16,7 +16,7 @@ function Cart() {
 
     try {
       const res = await axios.post(
-        "https://e-commerce-backend-production-0ed1.up.railway.app/api/orders",
+        "http://localhost:5000/api/orders",
         {
           products: cart.map((item) => item._id), // 👈 ONLY product IDs
         },

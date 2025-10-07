@@ -18,13 +18,10 @@ function SignUp() {
     e.preventDefault();
     setErrMsg("");
     try {
-      await axios.post(
-        "https://e-commerce-backend-production-0ed1.up.railway.app/api/auth/signup",
-        {
-          ...form,
-          role: "consumer",
-        }
-      );
+      await axios.post("http://localhost:5000/api/auth/signup", {
+        ...form,
+        role: "consumer",
+      });
       alert("User Registerd Successfully");
       navigate("/");
     } catch (err) {

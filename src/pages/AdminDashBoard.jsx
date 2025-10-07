@@ -11,12 +11,9 @@ function AdminDashBoard() {
     const token = localStorage.getItem("token");
 
     axios
-      .get(
-        "https://e-commerce-backend-production-0ed1.up.railway.app/api/users",
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      )
+      .get("http://localhost:5000/api/users", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((res) => setUsers(res.data))
       .catch((err) => console.log(err));
 
